@@ -6,11 +6,16 @@ Simple and Smooth Pdfviewer for Android applications.
 USAGE
 
 *Import project into Android Studio.
+
 *Project has two modules
+
   -Mupdflibrary
   -Sample
+
 *Sample application using fragmentation with actionbar.  
+
 *Run Sample on device.
+
 
 
 LIBRARY LICENSE
