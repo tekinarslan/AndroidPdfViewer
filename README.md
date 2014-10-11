@@ -3,6 +3,7 @@ AndroidPdfViewer
 
 Simple and Smooth Pdfviewer for Android applications.
 This project use copy of mupdf as library module.
+
 USAGE
 
 *Import project into Android Studio.
