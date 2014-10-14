@@ -17,7 +17,7 @@ USAGE
 
 *Run Sample on device.
 
-
+![alt tag](http://www.stdroid.com/img/screenshot.png)
 
 LIBRARY LICENSE
 
