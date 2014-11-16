@@ -1,5 +1,7 @@
 AndroidPdfViewer
 ================
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidPdfViewer-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/1124)
+
 
 Simple and Smooth Pdfviewer for Android applications.
 This project use copy of mupdf as library module.
