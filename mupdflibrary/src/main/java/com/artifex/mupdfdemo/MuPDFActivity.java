@@ -118,7 +118,7 @@ public class MuPDFActivity extends Activity {
                 // core.waitForAlert may return null when shutting down
                 if (result == null)
                     return;
-                final MuPDFAlert.ButtonPressed pressed[] = new MuPDFAlert.ButtonPressed[3];
+                final MuPDFAlert.ButtonPressed[] pressed = new MuPDFAlert.ButtonPressed[3];
                 for (int i = 0; i < 3; i++)
                     pressed[i] = MuPDFAlert.ButtonPressed.None;
                 DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
@@ -224,7 +224,7 @@ public class MuPDFActivity extends Activity {
         return core;
     }
 
-    private MuPDFCore openBuffer(byte buffer[]) {
+    private MuPDFCore openBuffer(byte[] buffer) {
         System.out.println("Trying to open byte buffer");
         try {
             core = new MuPDFCore(this, buffer);
@@ -255,7 +255,7 @@ public class MuPDFActivity extends Activity {
         }
         if (core == null) {
             Intent intent = getIntent();
-            byte buffer[] = null;
+            byte[] buffer = null;
             if (Intent.ACTION_VIEW.equals(intent.getAction())) {
                 Uri uri = intent.getData();
                 if (uri.toString().startsWith("content://")) {
@@ -548,7 +548,7 @@ public class MuPDFActivity extends Activity {
         if (core.hasOutline()) {
             mOutlineButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    OutlineItem outline[] = core.getOutline();
+                    OutlineItem[] outline = core.getOutline();
                     if (outline != null) {
                         OutlineActivityData.get().items = outline;
                         Intent intent = new Intent(MuPDFActivity.this, OutlineActivity.class);

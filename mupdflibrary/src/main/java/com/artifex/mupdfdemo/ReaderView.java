@@ -572,7 +572,7 @@ public class ReaderView
 
             // Remove not needed children and hold them for reuse
             int numChildren = mChildViews.size();
-            int childIndices[] = new int[numChildren];
+            int[] childIndices = new int[numChildren];
             for (int i = 0; i < numChildren; i++)
                 childIndices[i] = mChildViews.keyAt(i);
 

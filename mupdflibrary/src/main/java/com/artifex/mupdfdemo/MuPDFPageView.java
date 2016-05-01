@@ -62,8 +62,8 @@ class PassClickResultChoice extends PassClickResult {
 public class MuPDFPageView extends PageView implements MuPDFView {
     private final MuPDFCore mCore;
     private AsyncTask<Void, Void, PassClickResult> mPassClick;
-    private RectF mWidgetAreas[];
-    private Annotation mAnnotations[];
+    private RectF[] mWidgetAreas;
+    private Annotation[] mAnnotations;
     private int mSelectedAnnotationIndex = -1;
     private AsyncTask<Void, Void, RectF[]> mLoadWidgetAreas;
     private AsyncTask<Void, Void, Annotation[]> mLoadAnnotations;

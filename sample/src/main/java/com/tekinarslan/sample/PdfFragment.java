@@ -82,7 +82,7 @@ public class PdfFragment extends Fragment {
     }
 
 
-    private MuPDFCore openBuffer(byte buffer[]) {
+    private MuPDFCore openBuffer(byte[] buffer) {
         System.out.println("Trying to open byte buffer");
         try {
             core = new MuPDFCore(mContext, buffer);
