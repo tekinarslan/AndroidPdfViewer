@@ -3,7 +3,7 @@ package com.artifex.mupdfdemo;
 import android.graphics.PointF;
 import android.graphics.RectF;
 
-enum Hit {Nothing, Widget, Annotation};
+enum Hit {NOTHING, WIDGET, ANNOTATION};
 
 public interface MuPDFView {
     public void setPage(int page, PointF size);

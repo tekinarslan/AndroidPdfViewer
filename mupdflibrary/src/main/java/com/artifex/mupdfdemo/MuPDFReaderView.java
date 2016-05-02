@@ -10,11 +10,11 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 
 public class MuPDFReaderView extends ReaderView {
-    enum Mode {Viewing, Selecting, Drawing}
+    enum Mode {VIEWING, SELECTING, DRAWING}
 
     private final Context mContext;
     private boolean mLinksEnabled = false;
-    private Mode mMode = Mode.Viewing;
+    private Mode mMode = Mode.VIEWING;
     private boolean tapDisabled = false;
     private int tapPageMargin;
 
@@ -60,11 +60,11 @@ public class MuPDFReaderView extends ReaderView {
     public boolean onSingleTapUp(MotionEvent e) {
         LinkInfo link = null;
 
-        if (mMode == Mode.Viewing && !tapDisabled) {
+        if (mMode == Mode.VIEWING && !tapDisabled) {
             MuPDFView pageView = (MuPDFView) getDisplayedView();
             Hit item = pageView.passClickEvent(e.getX(), e.getY());
             onHit(item);
-            if (item == Hit.Nothing) {
+            if (item == Hit.NOTHING) {
                 if (mLinksEnabled && pageView != null
                         && (link = pageView.hitLink(e.getX(), e.getY())) != null) {
                     link.acceptVisitor(new LinkInfoVisitor() {
@@ -112,12 +112,12 @@ public class MuPDFReaderView extends ReaderView {
                             float distanceY) {
         MuPDFView pageView = (MuPDFView) getDisplayedView();
         switch (mMode) {
-            case Viewing:
+            case VIEWING:
                 if (!tapDisabled)
                     onDocMotion();
 
                 return super.onScroll(e1, e2, distanceX, distanceY);
-            case Selecting:
+            case SELECTING:
                 if (pageView != null)
                     pageView.selectText(e1.getX(), e1.getY(), e2.getX(), e2.getY());
                 return true;
@@ -130,7 +130,7 @@ public class MuPDFReaderView extends ReaderView {
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                            float velocityY) {
         switch (mMode) {
-            case Viewing:
+            case VIEWING:
                 return super.onFling(e1, e2, velocityX, velocityY);
             default:
                 return true;
@@ -147,7 +147,7 @@ public class MuPDFReaderView extends ReaderView {
 
     public boolean onTouchEvent(MotionEvent event) {
 
-        if (mMode == Mode.Drawing) {
+        if (mMode == Mode.DRAWING) {
             float x = event.getX();
             float y = event.getY();
             switch (event.getAction()) {

@@ -1,15 +1,15 @@
 package com.artifex.mupdfdemo;
 
 public class MuPDFAlert {
-    public enum IconType {Error, Warning, Question, Status}
+    public enum IconType {ERROR, WARNING, QUESTION, STATUS}
 
     ;
 
-    public enum ButtonPressed {None, Ok, Cancel, No, Yes}
+    public enum ButtonPressed {NONE, OK, CANCEL, NO, YES}
 
     ;
 
-    public enum ButtonGroupType {Ok, OkCancel, YesNo, YesNoCancel}
+    public enum ButtonGroupType {OK, OK_CANCEL, YES_NO, YES_NO_CANCEL}
 
     ;
 
