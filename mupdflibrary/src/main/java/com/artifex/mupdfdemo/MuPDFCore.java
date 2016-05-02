@@ -257,11 +257,11 @@ public class MuPDFCore {
         // The text of the page held in a hierarchy (blocks, lines, spans).
         // Currently we don't need to distinguish the blocks level or
         // the spans, and we need to collect the text into words.
-        ArrayList<TextWord[]> lns = new ArrayList<TextWord[]>();
+        ArrayList<TextWord[]> lns = new ArrayList<>();
 
         for (TextChar[][][] bl : chars) {
             for (TextChar[][] ln : bl) {
-                ArrayList<TextWord> wds = new ArrayList<TextWord>();
+                ArrayList<TextWord> wds = new ArrayList<>();
                 TextWord wd = new TextWord();
 
                 for (TextChar[] sp : ln) {
@@ -278,7 +278,7 @@ public class MuPDFCore {
                 if (wd.w.length() > 0)
                     wds.add(wd);
 
-                if (wds.size() > 0)
+                if (!wds.isEmpty())
                     lns.add(wds.toArray(new TextWord[wds.size()]));
             }
         }

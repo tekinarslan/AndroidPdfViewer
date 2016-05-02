@@ -193,7 +193,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
     };
 
     private static final BlockingQueue<Runnable> sPoolWorkQueue =
-            new LinkedBlockingQueue<Runnable>(10);
+            new LinkedBlockingQueue<>(10);
 
     /**
      * An {@link java.util.concurrent.Executor} that can be used to execute tasks in parallel.
@@ -223,7 +223,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
     private final AtomicBoolean mTaskInvoked = new AtomicBoolean();
 
     private static class SerialExecutor implements Executor {
-        final ArrayDeque<Runnable> mTasks = new ArrayDeque<Runnable>();
+        final ArrayDeque<Runnable> mTasks = new ArrayDeque<>();
         Runnable mActive;
 
         public synchronized void execute(final Runnable r) {

@@ -36,11 +36,11 @@ public class ReaderView
     private int mCurrent;    // Adapter's index for the current view
     private boolean mResetLayout;
     private final SparseArray<View>
-            mChildViews = new SparseArray<View>(3);
+            mChildViews = new SparseArray<>(3);
     // Shadows the children of the adapter view
     // but with more sensible indexing
     private final LinkedList<View>
-            mViewCache = new LinkedList<View>();
+            mViewCache = new LinkedList<>();
     private boolean mUserInteracting;  // Whether the user is interacting
     private boolean mScaling;    // Whether the user is currently pinch zooming
     private float mScale = 1.0f;
@@ -688,7 +688,7 @@ public class ReaderView
     }
 
     private View getCached() {
-        if (mViewCache.size() == 0)
+        if (mViewCache.isEmpty())
             return null;
         else
             return mViewCache.removeFirst();

@@ -69,7 +69,7 @@ class TextSelector {
         if (mText == null || mSelectBox == null)
             return;
 
-        ArrayList<TextWord[]> lines = new ArrayList<TextWord[]>();
+        ArrayList<TextWord[]> lines = new ArrayList<>();
         for (TextWord[] line : mText)
             if (line[0].bottom > mSelectBox.top && line[0].top < mSelectBox.bottom)
                 lines.add(line);
@@ -458,9 +458,9 @@ public abstract class PageView extends ViewGroup {
         float docRelX = (x - getLeft()) / scale;
         float docRelY = (y - getTop()) / scale;
         if (mDrawing == null)
-            mDrawing = new ArrayList<ArrayList<PointF>>();
+            mDrawing = new ArrayList<>();
 
-        ArrayList<PointF> arc = new ArrayList<PointF>();
+        ArrayList<PointF> arc = new ArrayList<>();
         arc.add(new PointF(docRelX, docRelY));
         mDrawing.add(arc);
     }
@@ -470,7 +470,7 @@ public abstract class PageView extends ViewGroup {
         float docRelX = (x - getLeft()) / scale;
         float docRelY = (y - getTop()) / scale;
 
-        if (mDrawing != null && mDrawing.size() > 0) {
+        if (mDrawing != null && !mDrawing.isEmpty()) {
             ArrayList<PointF> arc = mDrawing.get(mDrawing.size() - 1);
             arc.add(new PointF(docRelX, docRelY));
             mSearchView.invalidate();
