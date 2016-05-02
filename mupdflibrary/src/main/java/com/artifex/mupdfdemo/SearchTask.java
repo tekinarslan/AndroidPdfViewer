@@ -8,11 +8,11 @@ import android.graphics.RectF;
 import android.os.Handler;
 
 class ProgressDialogX extends ProgressDialog {
+    private boolean mCancelled = false;
+
     public ProgressDialogX(Context context) {
         super(context);
     }
-
-    private boolean mCancelled = false;
 
     public boolean isCancelled() {
         return mCancelled;

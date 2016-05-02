@@ -59,6 +59,12 @@ import java.util.NoSuchElementException;
  */
 public class ArrayDeque<E> extends AbstractCollection<E>
         implements Deque<E>, Cloneable, java.io.Serializable {
+
+    /**
+     * Appease the serialization gods.
+     */
+    private static final long serialVersionUID = 2340985798034038923L;
+
     /**
      * The array in which the elements of the deque are stored.
      * The capacity of the deque is the length of this array, which is
@@ -89,6 +95,39 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * Must be a power of 2.
      */
     private static final int MIN_INITIAL_CAPACITY = 8;
+
+    /**
+     * Constructs an empty array deque with an initial capacity
+     * sufficient to hold 16 elements.
+     */
+    public ArrayDeque() {
+        elements = new Object[16];
+    }
+
+    /**
+     * Constructs an empty array deque with an initial capacity
+     * sufficient to hold the specified number of elements.
+     *
+     * @param numElements lower bound on initial capacity of the deque
+     */
+    public ArrayDeque(int numElements) {
+        allocateElements(numElements);
+    }
+
+    /**
+     * Constructs a deque containing the elements of the specified
+     * collection, in the order they are returned by the collection's
+     * iterator.  (The first element returned by the collection's
+     * iterator becomes the first element, or <i>front</i> of the
+     * deque.)
+     *
+     * @param c the collection whose elements are to be placed into the deque
+     * @throws NullPointerException if the specified collection is null
+     */
+    public ArrayDeque(Collection<? extends E> c) {
+        allocateElements(c.size());
+        addAll(c);
+    }
 
     // ******  Array allocation and resizing utilities ******
 
@@ -152,39 +191,6 @@ public class ArrayDeque<E> extends AbstractCollection<E>
             System.arraycopy(elements, 0, a, headPortionLen, tail);
         }
         return a;
-    }
-
-    /**
-     * Constructs an empty array deque with an initial capacity
-     * sufficient to hold 16 elements.
-     */
-    public ArrayDeque() {
-        elements = new Object[16];
-    }
-
-    /**
-     * Constructs an empty array deque with an initial capacity
-     * sufficient to hold the specified number of elements.
-     *
-     * @param numElements lower bound on initial capacity of the deque
-     */
-    public ArrayDeque(int numElements) {
-        allocateElements(numElements);
-    }
-
-    /**
-     * Constructs a deque containing the elements of the specified
-     * collection, in the order they are returned by the collection's
-     * iterator.  (The first element returned by the collection's
-     * iterator becomes the first element, or <i>front</i> of the
-     * deque.)
-     *
-     * @param c the collection whose elements are to be placed into the deque
-     * @throws NullPointerException if the specified collection is null
-     */
-    public ArrayDeque(Collection<? extends E> c) {
-        allocateElements(c.size());
-        addAll(c);
     }
 
     // The main insertion and extraction methods are addFirst,
@@ -804,11 +810,6 @@ public class ArrayDeque<E> extends AbstractCollection<E>
             throw new AssertionError();
         }
     }
-
-    /**
-     * Appease the serialization gods.
-     */
-    private static final long serialVersionUID = 2340985798034038923L;
 
     /**
      * Serialize this deque.

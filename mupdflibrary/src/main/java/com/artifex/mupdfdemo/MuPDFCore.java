@@ -22,6 +22,23 @@ public class MuPDFCore {
     private byte[] fileBuffer;
     private String file_format;
 
+    public MuPDFCore(Context context, String filename) throws Exception {
+        globals = openFile(filename);
+        if (globals == 0) {
+            throw new Exception(String.format(context.getString(R.string.cannot_open_file_Path), filename));
+        }
+        file_format = fileFormatInternal();
+    }
+
+    public MuPDFCore(Context context, byte[] buffer) throws Exception {
+        fileBuffer = buffer;
+        globals = openBuffer();
+        if (globals == 0) {
+            throw new Exception(context.getString(R.string.cannot_open_buffer));
+        }
+        file_format = fileFormatInternal();
+    }
+
     /* The native functions */
     private native long openFile(String filename);
 
@@ -103,23 +120,6 @@ public class MuPDFCore {
     private native void saveInternal();
 
     public static native boolean javascriptSupported();
-
-    public MuPDFCore(Context context, String filename) throws Exception {
-        globals = openFile(filename);
-        if (globals == 0) {
-            throw new Exception(String.format(context.getString(R.string.cannot_open_file_Path), filename));
-        }
-        file_format = fileFormatInternal();
-    }
-
-    public MuPDFCore(Context context, byte[] buffer) throws Exception {
-        fileBuffer = buffer;
-        globals = openBuffer();
-        if (globals == 0) {
-            throw new Exception(context.getString(R.string.cannot_open_buffer));
-        }
-        file_format = fileFormatInternal();
-    }
 
     public int countPages() {
         if (numPages < 0)
