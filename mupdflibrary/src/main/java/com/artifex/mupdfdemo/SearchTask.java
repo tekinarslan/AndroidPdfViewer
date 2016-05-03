@@ -74,7 +74,7 @@ public abstract class SearchTask {
 
                 while (0 <= index && index < mCore.countPages() && !isCancelled()) {
                     publishProgress(index);
-                    RectF searchHits[] = mCore.searchPage(index, text);
+                    RectF[] searchHits = mCore.searchPage(index, text);
 
                     if (searchHits != null && searchHits.length > 0)
                         return new SearchTaskResult(text, index, searchHits);

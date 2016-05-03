@@ -19,7 +19,7 @@ public class MuPDFCore {
     private float pageWidth;
     private float pageHeight;
     private long globals;
-    private byte fileBuffer[];
+    private byte[] fileBuffer;
     private String file_format;
 
     /* The native functions */
@@ -112,7 +112,7 @@ public class MuPDFCore {
         file_format = fileFormatInternal();
     }
 
-    public MuPDFCore(Context context, byte buffer[]) throws Exception {
+    public MuPDFCore(Context context, byte[] buffer) throws Exception {
         fileBuffer = buffer;
         globals = openBuffer();
         if (globals == 0) {

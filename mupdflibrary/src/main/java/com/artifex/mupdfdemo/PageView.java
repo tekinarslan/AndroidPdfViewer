@@ -127,10 +127,10 @@ public abstract class PageView extends ViewGroup {
     private ImageView mPatch;
     private BitmapHolder mPatchBmh;
     private AsyncTask<PatchInfo, Void, PatchInfo> mDrawPatch;
-    private RectF mSearchBoxes[];
-    protected LinkInfo mLinks[];
+    private RectF[] mSearchBoxes;
+    protected LinkInfo[] mLinks;
     private RectF mSelectBox;
-    private TextWord mText[][];
+    private TextWord[][] mText;
     private RectF mItemSelectBox;
     protected ArrayList<ArrayList<PointF>> mDrawing;
     private View mSearchView;
@@ -404,7 +404,7 @@ public abstract class PageView extends ViewGroup {
         requestLayout();
     }
 
-    public void setSearchBoxes(RectF searchBoxes[]) {
+    public void setSearchBoxes(RectF[] searchBoxes) {
         mSearchBoxes = searchBoxes;
         if (mSearchView != null)
             mSearchView.invalidate();

@@ -28,7 +28,7 @@ public interface MuPDFView {
 
     public void deleteSelectedAnnotation();
 
-    public void setSearchBoxes(RectF searchBoxes[]);
+    public void setSearchBoxes(RectF[] searchBoxes);
 
     public void setLinkHighlighting(boolean f);
 

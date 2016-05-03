@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ListView;
 
 public class OutlineActivity extends ListActivity {
-    OutlineItem mItems[];
+    OutlineItem[] mItems;
 
     /**
      * Called when the activity is first created.

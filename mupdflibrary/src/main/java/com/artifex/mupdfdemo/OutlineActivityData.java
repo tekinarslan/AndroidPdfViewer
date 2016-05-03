@@ -1,7 +1,7 @@
 package com.artifex.mupdfdemo;
 
 public class OutlineActivityData {
-    public OutlineItem items[];
+    public OutlineItem[] items;
     public int position;
     static private OutlineActivityData singleton;
 
