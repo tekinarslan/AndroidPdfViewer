@@ -18,6 +18,29 @@ public class MuPDFReaderView extends ReaderView {
     private boolean tapDisabled = false;
     private int tapPageMargin;
 
+    private float mX, mY;
+
+    private static final float TOUCH_TOLERANCE = 2;
+
+    public MuPDFReaderView(Activity act) {
+        super(act);
+        mContext = act;
+        // Get the screen size etc to customise tap margins.
+        // We calculate the size of 1 inch of the screen for tapping.
+        // On some devices the dpi values returned are wrong, so we
+        // sanity check it: we first restrict it so that we are never
+        // less than 100 pixels (the smallest Android device screen
+        // dimension I've seen is 480 pixels or so). Then we check
+        // to ensure we are never more than 1/5 of the screen width.
+        DisplayMetrics dm = new DisplayMetrics();
+        act.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        tapPageMargin = (int) dm.xdpi;
+        if (tapPageMargin < 100)
+            tapPageMargin = 100;
+        if (tapPageMargin > dm.widthPixels / 5)
+            tapPageMargin = dm.widthPixels / 5;
+    }
+
     protected void onTapMainDocArea() {
     }
 
@@ -38,24 +61,6 @@ public class MuPDFReaderView extends ReaderView {
         mMode = m;
     }
 
-    public MuPDFReaderView(Activity act) {
-        super(act);
-        mContext = act;
-        // Get the screen size etc to customise tap margins.
-        // We calculate the size of 1 inch of the screen for tapping.
-        // On some devices the dpi values returned are wrong, so we
-        // sanity check it: we first restrict it so that we are never
-        // less than 100 pixels (the smallest Android device screen
-        // dimension I've seen is 480 pixels or so). Then we check
-        // to ensure we are never more than 1/5 of the screen width.
-        DisplayMetrics dm = new DisplayMetrics();
-        act.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        tapPageMargin = (int) dm.xdpi;
-        if (tapPageMargin < 100)
-            tapPageMargin = 100;
-        if (tapPageMargin > dm.widthPixels / 5)
-            tapPageMargin = dm.widthPixels / 5;
-    }
 
     public boolean onSingleTapUp(MotionEvent e) {
         LinkInfo link;
@@ -169,10 +174,6 @@ public class MuPDFReaderView extends ReaderView {
 
         return super.onTouchEvent(event);
     }
-
-    private float mX, mY;
-
-    private static final float TOUCH_TOLERANCE = 2;
 
     private void touch_start(float x, float y) {
 
