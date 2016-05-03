@@ -16,7 +16,7 @@ public class ChoosePDFAdapter extends BaseAdapter {
 
     public ChoosePDFAdapter(LayoutInflater inflater) {
         mInflater = inflater;
-        mItems = new LinkedList<ChoosePDFItem>();
+        mItems = new LinkedList<>();
     }
 
     public void clear() {

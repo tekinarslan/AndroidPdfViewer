@@ -282,7 +282,7 @@ public class MuPDFPageView extends PageView implements MuPDFView {
     }
 
     public boolean markupSelection(final Annotation.Type type) {
-        final ArrayList<PointF> quadPoints = new ArrayList<PointF>();
+        final ArrayList<PointF> quadPoints = new ArrayList<>();
         processSelectedText(new TextProcessor() {
             RectF rect;
 
@@ -304,7 +304,7 @@ public class MuPDFPageView extends PageView implements MuPDFView {
             }
         });
 
-        if (quadPoints.size() == 0)
+        if (quadPoints.isEmpty())
             return false;
 
         mAddStrikeOut = new AsyncTask<PointF[], Void, Void>() {

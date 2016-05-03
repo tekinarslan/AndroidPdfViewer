@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class ChoosePDFActivity extends ListActivity {
     static private File mDirectory;
-    static private Map<String, Integer> mPositions = new HashMap<String, Integer>();
+    static private Map<String, Integer> mPositions = new HashMap<>();
     private File mParent;
     private File[] mDirs;
     private File[] mFiles;

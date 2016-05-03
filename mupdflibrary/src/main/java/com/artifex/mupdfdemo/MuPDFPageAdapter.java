@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 public class MuPDFPageAdapter extends BaseAdapter {
     private final Context mContext;
     private final MuPDFCore mCore;
-    private final SparseArray<PointF> mPageSizes = new SparseArray<PointF>();
+    private final SparseArray<PointF> mPageSizes = new SparseArray<>();
 
     public MuPDFPageAdapter(Context c, MuPDFCore core) {
         mContext = c;
