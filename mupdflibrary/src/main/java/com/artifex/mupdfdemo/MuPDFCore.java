@@ -188,7 +188,7 @@ public class MuPDFCore {
                                           int pageW, int pageH,
                                           int patchX, int patchY,
                                           int patchW, int patchH) {
-        Bitmap bm = null;
+        Bitmap bm;
         Bitmap old_bm = h.getBm();
 
         if (old_bm == null)

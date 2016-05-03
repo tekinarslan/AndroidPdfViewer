@@ -58,7 +58,7 @@ public class MuPDFReaderView extends ReaderView {
     }
 
     public boolean onSingleTapUp(MotionEvent e) {
-        LinkInfo link = null;
+        LinkInfo link;
 
         if (mMode == Mode.Viewing && !tapDisabled) {
             MuPDFView pageView = (MuPDFView) getDisplayedView();
