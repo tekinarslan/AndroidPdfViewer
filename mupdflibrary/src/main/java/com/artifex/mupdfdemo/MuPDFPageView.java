@@ -189,7 +189,7 @@ public class MuPDFPageView extends PageView implements MuPDFView {
                     case INK:
                         mSelectedAnnotationIndex = i;
                         setItemSelectBox(mAnnotations[i]);
-                        return Hit.Annotation;
+                        return Hit.ANNOTATION;
                 }
             }
         }
@@ -198,7 +198,7 @@ public class MuPDFPageView extends PageView implements MuPDFView {
         setItemSelectBox(null);
 
         if (!MuPDFCore.javascriptSupported())
-            return Hit.Nothing;
+            return Hit.NOTHING;
 
         if (mWidgetAreas != null) {
             for (i = 0; i < mWidgetAreas.length && !hit; i++)
@@ -234,10 +234,10 @@ public class MuPDFPageView extends PageView implements MuPDFView {
             };
 
             mPassClick.execute();
-            return Hit.Widget;
+            return Hit.WIDGET;
         }
 
-        return Hit.Nothing;
+        return Hit.NOTHING;
     }
 
     public boolean copySelection() {

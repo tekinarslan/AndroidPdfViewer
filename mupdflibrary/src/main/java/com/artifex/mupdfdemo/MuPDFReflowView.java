@@ -82,7 +82,7 @@ public class MuPDFReflowView extends WebView implements MuPDFView {
     }
 
     public Hit passClickEvent(float x, float y) {
-        return Hit.Nothing;
+        return Hit.NOTHING;
     }
 
     public LinkInfo hitLink(float x, float y) {
